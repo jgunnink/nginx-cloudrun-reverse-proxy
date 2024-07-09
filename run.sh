@@ -3,6 +3,7 @@ while true; do
     ACCESS_TOKEN=$(curl -s -H "Metadata-Flavor: Google" \
         "http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=https://hello-3qqsqbdsuq-uc.a.run.app")
 
+    cp /etc/nginx/nginx.conf.template /etc/nginx/nginx.conf
     sed -i "s/___ACCESS_TOKEN___/$ACCESS_TOKEN/g" /etc/nginx/nginx.conf
     echo "Access token replaced"
 
