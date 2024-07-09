@@ -11,8 +11,9 @@ while true; do
       nginx -s reload
     else
       echo "Starting Nginx"
-      nginx -c /etc/nginx/nginx.conf -g "daemon off;"
+      nginx -c /etc/nginx/nginx.conf
     fi
 
+    echo "Script sleeping before refresh"
     sleep 3300 # Refresh every 55 minutes
 done
